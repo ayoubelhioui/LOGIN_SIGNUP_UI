@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'SignupPage.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -44,10 +45,13 @@ class MyApp extends StatelessWidget {
                   shape: const StadiumBorder(),
                 ),
                 onPressed: () => {},
-                child: const Text('Login',style: TextStyle(color: Colors.black),),
+                child: const Text(
+                  'Login',
+                  style: TextStyle(color: Colors.black),
+                ),
               ),
             ),
-            const SizedBox(height:20),
+            const SizedBox(height: 20),
             SizedBox(
               height: 50,
               width: 300,
@@ -56,10 +60,15 @@ class MyApp extends StatelessWidget {
                   primary: Colors.amber.shade300,
                   shape: const StadiumBorder(),
                 ),
-                onPressed: () => {},
                 child: const Text('Sign Up'),
+                onPressed: () => {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const SignUp()),
+                  ),
+                },
               ),
-            )
+            ),
           ],
         ),
       ),

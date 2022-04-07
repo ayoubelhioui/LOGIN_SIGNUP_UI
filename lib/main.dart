@@ -18,15 +18,21 @@ class MyApp extends StatelessWidget {
         // margin: const EdgeInsets.only(left: 10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Text(
+          children:  [
+            const Text(
               'Welcome',
               style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
             ),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Automatic identity verification which enables you verify your identity',
               style: TextStyle(color: Colors.grey),
               textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 80),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Image.asset('assets/Illustration.png'),
             ),
           ],
         ),

@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         // margin: const EdgeInsets.only(left: 10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children:  [
+          children: [
             const Text(
               'Welcome',
               style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
@@ -34,6 +34,32 @@ class MyApp extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Image.asset('assets/Illustration.png'),
             ),
+            const SizedBox(height: 70),
+            SizedBox(
+              height: 50,
+              width: 300,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.white,
+                  shape: const StadiumBorder(),
+                ),
+                onPressed: () => {},
+                child: const Text('Login',style: TextStyle(color: Colors.black),),
+              ),
+            ),
+            const SizedBox(height:20),
+            SizedBox(
+              height: 50,
+              width: 300,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.amber.shade300,
+                  shape: const StadiumBorder(),
+                ),
+                onPressed: () => {},
+                child: const Text('Sign Up'),
+              ),
+            )
           ],
         ),
       ),

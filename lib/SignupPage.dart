@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_signup/LoginPage.dart';
 
 void main() => runApp(const SignUp());
 
@@ -77,7 +78,7 @@ class SignUp extends StatelessWidget {
                             children: [
                               const Text('Already have an account?'),
                               TextButton(
-                                onPressed: () => {},
+                                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: ((_) => const LoginPage()))),
                                 child: const Text('Login'),
                               )
                             ],

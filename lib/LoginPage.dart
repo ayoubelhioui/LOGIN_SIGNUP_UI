@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'main.dart';
+import 'SignupPage.dart';
 
 void main() => runApp(const LoginPage());
 
@@ -13,68 +13,81 @@ class LoginPage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
-          body: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 60),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(
-                  height: 30,
-                ),
-                IconButton(
-                  onPressed: () => Navigator.pop(context),
-                  icon: const Icon(Icons.arrow_back),
-                ),
-                const SizedBox(
-                  height: 50,
-                ),
-                Column(
+          body: SingleChildScrollView(
+            child: Column(children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 60),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Login',
-                      style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                    ),
                     const SizedBox(
-                      height: 25,
+                      height: 30,
                     ),
-                    const Text('Login to your account'),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    const TextField(
-                      decoration: InputDecoration(labelText: 'Email'),
-                    ),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    const TextField(
-                      decoration: InputDecoration(labelText: 'Password'),
+                    IconButton(
+                      onPressed: () => Navigator.pop(context),
+                      icon: const Icon(Icons.arrow_back),
                     ),
                     const SizedBox(
                       height: 50,
                     ),
-                    SizedBox(
-                      width: 300,
-                      height: 50,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            shape: const StadiumBorder()),
-                        onPressed: () => {},
-                        child: const Text('Login'),
-                      ),
-                    ),
-                    Row(
-                      children: const [
-                        Text('Don\'t have an account?'),
-                      ]
+                    Column(
+                      children: [
+                        const Text(
+                          'Login',
+                          style: TextStyle(
+                              fontSize: 30, fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(
+                          height: 25,
+                        ),
+                        const Text('Login to your account'),
+                        const SizedBox(
+                          height: 40,
+                        ),
+                        const TextField(
+                          decoration: InputDecoration(labelText: 'Email'),
+                        ),
+                        const SizedBox(
+                          height: 40,
+                        ),
+                        const TextField(
+                          decoration: InputDecoration(labelText: 'Password'),
+                        ),
+                        const SizedBox(
+                          height: 50,
+                        ),
+                        SizedBox(
+                          width: 300,
+                          height: 50,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                shape: const StadiumBorder()),
+                            onPressed: () => {},
+                            child: const Text('Login'),
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text('Don\'t have an account?'),
+                            TextButton(
+                                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_)=>const SignUp())),
+                                child: const Text('Sign Up'))
+                          ],
+                        ),
+                      ],
                     )
-                    // Image.asset('assets/background.png'),
                   ],
-                )
-              ],
-            ),
+                ),
+              ),
+              Image.asset(
+                'assets/background.png',
+                width: 400,
+                height: 205,
+                fit: BoxFit.fill,
+              ),
+            ]),
           ),
         ),
       ),

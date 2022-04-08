@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'SignupPage.dart';
+import 'LoginPage.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
                   primary: Colors.white,
                   shape: const StadiumBorder(),
                 ),
-                onPressed: () => {},
+                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_)=>const LoginPage())),
                 child: const Text(
                   'Login',
                   style: TextStyle(color: Colors.black),

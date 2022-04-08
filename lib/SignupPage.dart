@@ -11,32 +11,35 @@ class SignUp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.amber),
       debugShowCheckedModeBanner: false,
       home: SafeArea(
-
         child: Scaffold(
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
-            children: [ 
+            children: [
+              const SizedBox(
+                height: 30,
+              ),
               Padding(
                 padding: const EdgeInsets.only(left: 30),
                 child: IconButton(
-                      padding: const EdgeInsets.only(right: 100),
-                      onPressed: () => Navigator.pop(context),
-                      icon: const Icon(Icons.arrow_back),
-                    ),
+                  padding: const EdgeInsets.only(right: 100),
+                  onPressed: () => Navigator.pop(context),
+                  icon: const Icon(Icons.arrow_back),
+                ),
               ),
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                   
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 50),
                       child: Column(
                         children: [
                           const Text(
                             'Sign up',
-                            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold,
+                                color: Colors.amber),
                           ),
                           const SizedBox(
                             height: 15,
@@ -53,7 +56,8 @@ class SignUp extends StatelessWidget {
                             obscureText: true,
                           ),
                           const TextField(
-                            decoration: InputDecoration(labelText: 'Confirm Password'),
+                            decoration:
+                                InputDecoration(labelText: 'Confirm Password'),
                             obscureText: true,
                           ),
                           const SizedBox(

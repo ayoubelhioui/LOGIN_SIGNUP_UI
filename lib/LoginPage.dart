@@ -13,6 +13,14 @@ class LoginPage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
+          appBar: AppBar(
+            elevation: 0,
+            backgroundColor: Colors.white24,
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () => Navigator.pop(context),
+            ),
+          ),
           body: SingleChildScrollView(
             child: Column(children: [
               Padding(
@@ -24,10 +32,10 @@ class LoginPage extends StatelessWidget {
                     const SizedBox(
                       height: 30,
                     ),
-                    IconButton(
-                      onPressed: () => Navigator.pop(context),
-                      icon: const Icon(Icons.arrow_back),
-                    ),
+                    // IconButton(
+                    //   onPressed: () => Navigator.pop(context),
+                    //   icon: const Icon(Icons.arrow_back),
+                    // ),
                     const SizedBox(
                       height: 50,
                     ),
@@ -72,7 +80,10 @@ class LoginPage extends StatelessWidget {
                           children: [
                             const Text('Don\'t have an account?'),
                             TextButton(
-                                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_)=>const SignUp())),
+                                onPressed: () => Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (_) => const SignUp())),
                                 child: const Text('Sign Up'))
                           ],
                         ),

@@ -13,20 +13,20 @@ class SignUp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
+          appBar: AppBar(
+            elevation: 0,
+            backgroundColor: Colors.white12,
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () => Navigator.pop(context),
+            ),
+          ),
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const SizedBox(
                 height: 30,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 30),
-                child: IconButton(
-                  padding: const EdgeInsets.only(right: 100),
-                  onPressed: () => Navigator.pop(context),
-                  icon: const Icon(Icons.arrow_back),
-                ),
               ),
               Expanded(
                 child: Column(
@@ -39,7 +39,8 @@ class SignUp extends StatelessWidget {
                           const Text(
                             'Sign up',
                             style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
                                 color: Colors.amber),
                           ),
                           const SizedBox(
@@ -78,7 +79,10 @@ class SignUp extends StatelessWidget {
                             children: [
                               const Text('Already have an account?'),
                               TextButton(
-                                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: ((_) => const LoginPage()))),
+                                onPressed: () => Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: ((_) => const LoginPage()))),
                                 child: const Text('Login'),
                               )
                             ],

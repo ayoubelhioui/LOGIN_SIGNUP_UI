@@ -41,7 +41,7 @@ class SignUp extends StatelessWidget {
                             style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.amber),
+                                color: Color(0xFFFFC107)),
                           ),
                           const SizedBox(
                             height: 15,

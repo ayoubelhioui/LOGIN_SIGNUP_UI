@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'SignupPage.dart';
 import 'LoginPage.dart';
+import 'Todolistpage.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -17,11 +18,10 @@ class MyApp extends StatelessWidget {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 40),
-        // margin: const EdgeInsets.only(left: 10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
+             const Text(
               'Welcome',
               style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
             ),
@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
                   primary: Colors.white,
                   shape: const StadiumBorder(),
                 ),
-                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_)=>const LoginPage())),
+                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_)=>const TodoListPage())),
                 child: const Text(
                   'Login',
                   style: TextStyle(color: Colors.black),

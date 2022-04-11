@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'TasksCard.dart';
 
 void main() => runApp(const TodoListPage());
 
@@ -17,6 +18,7 @@ class _TodoListPageState extends State<TodoListPage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        resizeToAvoidBottomInset:false,
         body: SafeArea(
           child: Column(
             children: [
@@ -26,6 +28,10 @@ class _TodoListPageState extends State<TodoListPage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                       InkWell(
+                         onTap:() => Navigator.pop(context),
+                        child:  const Icon(Icons.arrow_back),
+                      ),
                       Container(
                         width: 120,
                         height: 120,
@@ -89,10 +95,7 @@ class _TodoListPageState extends State<TodoListPage> {
                   const SizedBox(height: 10),
                   const Text(
                     'Tasks List',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                   )
                 ],
               ),
@@ -101,8 +104,8 @@ class _TodoListPageState extends State<TodoListPage> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 40),
-                child: 
-          ),
+                child: CardWidget(todoList),
+              )
             ],
           ),
         ),

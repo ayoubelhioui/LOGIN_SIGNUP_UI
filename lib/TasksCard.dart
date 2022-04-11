@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-void main() => runApp( CardWidget());
-
 class CardWidget extends StatefulWidget {
-   CardWidget(List<String> todolist)
-
   List<String> todoList;
+  CardWidget(this.todoList, {Key? key}) : super(key: key);
+
   @override
   State<CardWidget> createState() => _CardWidgetState();
 }
 
 class _CardWidgetState extends State<CardWidget> {
+  TextEditingController taskController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -40,7 +40,44 @@ class _CardWidgetState extends State<CardWidget> {
                       Icons.add_circle_outline,
                       color: Color.fromARGB(255, 238, 195, 66),
                     ),
-                    onTap: () => {},
+                    onTap: () {
+                      showModalBottomSheet(
+                        context: context,
+                        builder: (_) {
+                          return SizedBox(
+                            height: 300,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Add the task here',
+                                  style: GoogleFonts.poppins(),
+                                ),
+                                SizedBox(
+                                  width: 250,
+                                  child: TextField(
+                                    controller: taskController,
+                                    decoration: const InputDecoration(
+                                      label: Text('Task'),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 150,
+                                  child: ElevatedButton(
+                                      onPressed: () =>setState(() {
+                                        widget.todoList
+                                          .add(taskController.text);
+                                        taskController.clear();
+                                      }),
+                                      child: const Text('Add')),
+                                )
+                              ],
+                            ),
+                          );
+                        },
+                      );
+                    },
                   )
                 ],
               ),
@@ -49,7 +86,7 @@ class _CardWidgetState extends State<CardWidget> {
               height: 150,
               child: ListView.builder(
                 shrinkWrap: true,
-                itemCount: todoList.length,
+                itemCount: widget.todoList.length,
                 itemBuilder: (builder, index) => SizedBox(
                   height: 30,
                   child: Row(
@@ -64,7 +101,7 @@ class _CardWidgetState extends State<CardWidget> {
                         ),
                       ),
                       Text(
-                        todoList[index],
+                        widget.todoList[index],
                         style: GoogleFonts.poppins(
                           fontSize: 14,
                           fontWeight: FontWeight.w200,

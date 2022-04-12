@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:login_signup/LoginPage.dart';
 import 'SignupPage.dart';
-import 'Todolistpage.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
             const SizedBox(height: 80),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Image.asset('assets/Illustration.png'),
+              child: Image.asset('assets/images/Illustration.png'),
             ),
             const SizedBox(height: 70),
             SizedBox(
@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
                   primary: Colors.white,
                   shape: const StadiumBorder(),
                 ),
-                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_)=>const TodoListPage())),
+                onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_)=>const LoginPage())),
                 child: const Text(
                   'Login',
                   style: TextStyle(color: Colors.black),

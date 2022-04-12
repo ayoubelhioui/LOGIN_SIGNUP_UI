@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'CheckBox.dart';
 
 class CardWidget extends StatefulWidget {
   List<String> todoList;
@@ -12,6 +11,7 @@ class CardWidget extends StatefulWidget {
 
 class _CardWidgetState extends State<CardWidget> {
   TextEditingController taskController = TextEditingController();
+  bool? value = false;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -24,24 +24,27 @@ class _CardWidgetState extends State<CardWidget> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+              padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     'Tasks List',
-                    style: GoogleFonts.poppins(
+                    style: TextStyle(
                       fontSize: 14,
-                      fontWeight: FontWeight.w300,
+                      fontFamily: 'Poppins',
                     ),
                   ),
                   InkWell(
                     child: const Icon(
                       Icons.add_circle_outline,
-                      color: Color.fromARGB(255, 238, 195, 66),
+                      color: Color.fromRGBO(43, 142, 148, 1),
                     ),
                     onTap: () {
                       showModalBottomSheet(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
                         context: context,
                         builder: (_) {
                           return SizedBox(
@@ -49,9 +52,9 @@ class _CardWidgetState extends State<CardWidget> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
+                                const Text(
                                   'Add the task here',
-                                  style: GoogleFonts.poppins(),
+                                  style: TextStyle(fontFamily: 'Poppins'),
                                 ),
                                 SizedBox(
                                   width: 250,
@@ -65,11 +68,12 @@ class _CardWidgetState extends State<CardWidget> {
                                 SizedBox(
                                   width: 150,
                                   child: ElevatedButton(
-                                      onPressed: () =>setState(() {
-                                        widget.todoList
-                                          .add(taskController.text);
-                                        taskController.clear();
-                                      }),
+                                      onPressed: () => setState(() {
+                                            Navigator.pop(context);
+                                            widget.todoList
+                                                .add(taskController.text);
+                                            taskController.clear();
+                                          }),
                                       child: const Text('Add')),
                                 )
                               ],
@@ -82,32 +86,49 @@ class _CardWidgetState extends State<CardWidget> {
                 ],
               ),
             ),
-            SizedBox(
-              height: 150,
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: widget.todoList.length,
-                itemBuilder: (builder, index) => SizedBox(
-                  height: 30,
-                  child: Row(
-                    children: [
-                      Transform.scale(
-                        scale: 0.7,
-                        child: Checkbox(
-                          value: false,
-                          materialTapTargetSize:
-                              MaterialTapTargetSize.shrinkWrap,
-                          onChanged: (newVal) {},
+            Scrollbar(
+              isAlwaysShown: true,
+              child: SizedBox(
+                height: 150,
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: widget.todoList.length,
+                  itemBuilder: (builder, index) => SizedBox(
+                    height: 30,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Transform.scale(
+                          scale: 0.7,
+                          child: const Checkboxclass(),
                         ),
-                      ),
-                      Text(
-                        widget.todoList[index],
-                        style: GoogleFonts.poppins(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w200,
+                        Text(
+                          widget.todoList[index],
+                          style: const TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 14,
+                            fontWeight: FontWeight.w200,
+                          ),
                         ),
-                      ),
-                    ],
+                        Container(
+                          margin: const EdgeInsets.only(right: 20),
+                          child: InkWell(
+                            onTap: (() {
+                              setState(
+                                () {
+                                  widget.todoList.removeAt(index);
+                                },
+                              );
+                            }),
+                            child: const Icon(
+                              Icons.remove_circle,
+                              color: Colors.red,
+                              size: 20,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),

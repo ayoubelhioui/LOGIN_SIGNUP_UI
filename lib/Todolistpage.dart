@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'TasksCard.dart';
 
 void main() => runApp(const TodoListPage());
@@ -14,11 +13,20 @@ class TodoListPage extends StatefulWidget {
 class _TodoListPageState extends State<TodoListPage> {
   @override
   Widget build(BuildContext context) {
-    List<String> todoList = [];
+    List<String> todoList = [
+    "Have breakfast at 10 am",
+    "Beign at school at 11 am",
+    "Learn Flutter at 12 pm",
+    "Have lunch at 1 pm",
+    "Working at cursus at 2 pm",
+    "Working at cursus at 2 pm",
+    "Working at cursus at 2 pm",
+    "Have dinner at 8 am"
+    ];
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        resizeToAvoidBottomInset:false,
+        resizeToAvoidBottomInset: false,
         body: SafeArea(
           child: Column(
             children: [
@@ -28,16 +36,22 @@ class _TodoListPageState extends State<TodoListPage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                       InkWell(
-                         onTap:() => Navigator.pop(context),
-                        child:  const Icon(Icons.arrow_back),
+                      Container(
+                        margin: const EdgeInsets.only(
+                          right: 300,
+                        ),
+                        child: InkWell(
+                          onTap: () => Navigator.pop(context),
+                          child: const Icon(Icons.arrow_back,
+                              color: Color.fromRGBO(43, 142, 148, 1)),
+                        ),
                       ),
                       Container(
                         width: 120,
                         height: 120,
                         decoration: BoxDecoration(
                           image: const DecorationImage(
-                            image: AssetImage('assets/image.png'),
+                            image: AssetImage('assets/images/image.png'),
                           ),
                           border: Border.all(
                             color: const Color.fromRGBO(43, 142, 148, 1),
@@ -49,9 +63,9 @@ class _TodoListPageState extends State<TodoListPage> {
                       const SizedBox(
                         height: 30,
                       ),
-                      Text(
+                      const Text(
                         'Welcome, Ayoub Elhioui',
-                        style: GoogleFonts.poppins(
+                        style: TextStyle(fontFamily: 'Poppins',
                           fontSize: 20,
                           fontWeight: FontWeight.w700,
                           color: Colors.white,
@@ -63,7 +77,7 @@ class _TodoListPageState extends State<TodoListPage> {
                 width: double.infinity,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('assets/yellowbackground.png'),
+                    image: AssetImage('assets/images/yellowbackground.png'),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -73,29 +87,35 @@ class _TodoListPageState extends State<TodoListPage> {
                   const SizedBox(
                     height: 20,
                   ),
-                  Padding(
+                  const Padding(
                     child: Text(
                       'Good Afternoon',
-                      style: GoogleFonts.poppins(
+                      style: TextStyle(fontFamily: 'Poppins',
                         fontSize: 16,
                         fontWeight: FontWeight.w700,
-                        color: Colors.black,
+                        color:  Color.fromRGBO(43, 142, 148, 1),
                       ),
                     ),
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: EdgeInsets.symmetric(horizontal: 20),
                   ),
                   const SizedBox(
                     height: 15,
                   ),
                   SizedBox(
                     width: 150,
-                    child: Image.asset('assets/clock.png'),
+                    child: Image.asset('assets/images/clock.png'),
                     height: 150,
                   ),
                   const SizedBox(height: 10),
                   const Text(
                     'Tasks List',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                    style: TextStyle(
+                      fontSize: 20,
+                      height: 1,
+                      fontWeight: FontWeight.w500,
+                      color: Color.fromRGBO(43, 142, 148, 1),
+                      fontFamily: 'Poppins'
+                    ),
                   )
                 ],
               ),

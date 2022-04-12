@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'TasksCard.dart';
+import 'Clockclass.dart';
 
 void main() => runApp(const TodoListPage());
 
@@ -13,15 +14,20 @@ class TodoListPage extends StatefulWidget {
 class _TodoListPageState extends State<TodoListPage> {
   @override
   Widget build(BuildContext context) {
+    List<int> clockList = [
+      DateTime.now().hour,
+      DateTime.now().minute,
+      DateTime.now().second
+    ];
     List<String> todoList = [
-    "Have breakfast at 10 am",
-    "Beign at school at 11 am",
-    "Learn Flutter at 12 pm",
-    "Have lunch at 1 pm",
-    "Working at cursus at 2 pm",
-    "Working at cursus at 2 pm",
-    "Working at cursus at 2 pm",
-    "Have dinner at 8 am"
+      "Have breakfast at 10 am",
+      "Beign at school at 11 am",
+      "Learn Flutter at 12 pm",
+      "Have lunch at 1 pm",
+      "Working at cursus at 2 pm",
+      "Working at cursus at 2 pm",
+      "Working at cursus at 2 pm",
+      "Have dinner at 8 am"
     ];
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -65,7 +71,8 @@ class _TodoListPageState extends State<TodoListPage> {
                       ),
                       const Text(
                         'Welcome, Ayoub Elhioui',
-                        style: TextStyle(fontFamily: 'Poppins',
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
                           fontSize: 20,
                           fontWeight: FontWeight.w700,
                           color: Colors.white,
@@ -83,39 +90,35 @@ class _TodoListPageState extends State<TodoListPage> {
                 ),
               ),
               Column(
-                children: [
-                  const SizedBox(
+                children: const [
+                   SizedBox(
                     height: 20,
                   ),
-                  const Padding(
+                   Padding(
                     child: Text(
                       'Good Afternoon',
-                      style: TextStyle(fontFamily: 'Poppins',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
                         fontSize: 16,
                         fontWeight: FontWeight.w700,
-                        color:  Color.fromRGBO(43, 142, 148, 1),
+                        color: Color.fromRGBO(43, 142, 148, 1),
                       ),
                     ),
                     padding: EdgeInsets.symmetric(horizontal: 20),
                   ),
-                  const SizedBox(
+                  ClockClass(),
+                   SizedBox(
                     height: 15,
                   ),
-                  SizedBox(
-                    width: 150,
-                    child: Image.asset('assets/images/clock.png'),
-                    height: 150,
-                  ),
-                  const SizedBox(height: 10),
-                  const Text(
+                   SizedBox(height: 10),
+                   Text(
                     'Tasks List',
                     style: TextStyle(
-                      fontSize: 20,
-                      height: 1,
-                      fontWeight: FontWeight.w500,
-                      color: Color.fromRGBO(43, 142, 148, 1),
-                      fontFamily: 'Poppins'
-                    ),
+                        fontSize: 20,
+                        height: 1,
+                        fontWeight: FontWeight.w500,
+                        color: Color.fromRGBO(43, 142, 148, 1),
+                        fontFamily: 'Poppins'),
                   )
                 ],
               ),

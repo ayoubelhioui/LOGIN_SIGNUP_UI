@@ -96,18 +96,19 @@ class _CardWidgetState extends State<CardWidget> {
                   itemBuilder: (builder, index) => SizedBox(
                     height: 30,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Transform.scale(
                           scale: 0.7,
                           child: const Checkboxclass(),
                         ),
-                        Text(
-                          widget.todoList[index],
-                          style: const TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 14,
-                            fontWeight: FontWeight.w200,
+                        Expanded(
+                          child: Text(
+                            widget.todoList[index],
+                            style: const TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 14,
+                              fontWeight: FontWeight.w200,
+                            ),
                           ),
                         ),
                         Container(

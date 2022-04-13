@@ -86,10 +86,10 @@ class _TodoListPageState extends State<TodoListPage> {
               ),
               Column(
                 children: const [
-                   SizedBox(
+                  SizedBox(
                     height: 20,
                   ),
-                   Padding(
+                  Padding(
                     child: Text(
                       'Good Night',
                       style: TextStyle(
@@ -101,12 +101,15 @@ class _TodoListPageState extends State<TodoListPage> {
                     ),
                     padding: EdgeInsets.symmetric(horizontal: 20),
                   ),
-                  ClockClass(),
-                   SizedBox(
+                  SizedBox(
                     height: 15,
                   ),
-                   SizedBox(height: 10),
-                   Text(
+                  ClockClass(),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  SizedBox(height: 10),
+                  Text(
                     'Tasks List',
                     style: TextStyle(
                         fontSize: 20,

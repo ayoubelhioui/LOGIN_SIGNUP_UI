@@ -15,6 +15,7 @@ class _ClockTextState extends State<ClockText> {
       style: const TextStyle(
         fontSize: 70,
         fontFamily: 'Poppins',
+        color: Color.fromRGBO(43, 142, 148, 1),
         fontWeight: FontWeight.bold,
       ),
     );

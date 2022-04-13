@@ -14,14 +14,9 @@ class TodoListPage extends StatefulWidget {
 class _TodoListPageState extends State<TodoListPage> {
   @override
   Widget build(BuildContext context) {
-    List<int> clockList = [
-      DateTime.now().hour,
-      DateTime.now().minute,
-      DateTime.now().second
-    ];
     List<String> todoList = [
       "Have breakfast at 10 am",
-      "Beign at school at 11 am",
+      "Being at school at 11 am",
       "Learn Flutter at 12 pm",
       "Have lunch at 1 pm",
       "Working at cursus at 2 pm",
@@ -96,7 +91,7 @@ class _TodoListPageState extends State<TodoListPage> {
                   ),
                    Padding(
                     child: Text(
-                      'Good Afternoon',
+                      'Good Night',
                       style: TextStyle(
                         fontFamily: 'Poppins',
                         fontSize: 16,

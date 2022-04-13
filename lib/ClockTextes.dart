@@ -10,17 +10,13 @@ class ClockText extends StatefulWidget {
 class _ClockTextState extends State<ClockText> {
   @override
   Widget build(BuildContext context) {
-    // int i = 0;
-    // while (i < 100)
-    // {
-    // setState(() {
-    // });
-    // i++;                                                                              
-    // }
-      
     return Text(
       widget._data,
-      style: const TextStyle(fontSize: 70),
+      style: const TextStyle(
+        fontSize: 70,
+        fontFamily: 'Poppins',
+        fontWeight: FontWeight.bold,
+      ),
     );
   }
 }

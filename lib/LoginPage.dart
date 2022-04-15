@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:login_signup/Todolistpage.dart';
 import 'SignupPage.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 void main() => runApp(const LoginPage());
 
@@ -9,6 +11,25 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+  final TextEditingController _emailcontroller = TextEditingController();
+  final TextEditingController _passwordcontroller = TextEditingController();
+  void fetchingData() async {
+    try {
+      const url =
+          'https://todolist-9515c-default-rtdb.firebaseio.com/info.json';
+      final data = await http.get(Uri.parse(url));
+      final returnedData = jsonDecode(data.body) as Map;
+      returnedData.forEach((key, value) { 
+        if (value['email'] == _emailcontroller.text && value['Password'] == _passwordcontroller.text){
+          Navigator.push(context, MaterialPageRoute(builder: (_)=>const TodoListPage()));
+          _emailcontroller.clear();
+          _passwordcontroller.clear();
+        }
+      });
+    } catch (e) {
+      return ;
+    }
+  }
     return MaterialApp(
       theme: ThemeData(primarySwatch: Colors.amber),
       debugShowCheckedModeBanner: false,
@@ -33,10 +54,6 @@ class LoginPage extends StatelessWidget {
                     const SizedBox(
                       height: 30,
                     ),
-                    // IconButton(
-                    //   onPressed: () => Navigator.pop(context),
-                    //   icon: const Icon(Icons.arrow_back),
-                    // ),
                     const SizedBox(
                       height: 50,
                     ),
@@ -54,15 +71,17 @@ class LoginPage extends StatelessWidget {
                         const SizedBox(
                           height: 40,
                         ),
-                        const TextField(
-                          decoration: InputDecoration(labelText: 'Email'),
+                         TextField(
+                          controller: _emailcontroller,
+                          decoration: const InputDecoration(labelText: 'Email'),
                         ),
                         const SizedBox(
                           height: 40,
                         ),
-                        const TextField(
+                         TextField(
+                           controller: _passwordcontroller,
                           obscureText: true,
-                          decoration: InputDecoration(labelText: 'Password'),
+                          decoration: const InputDecoration(labelText: 'Password'),
                         ),
                         const SizedBox(
                           height: 50,
@@ -73,8 +92,7 @@ class LoginPage extends StatelessWidget {
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                                 shape: const StadiumBorder()),
-                            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_)=>const 
-                            TodoListPage())),
+                            onPressed: () => fetchingData(),
                             child: const Text('Login'),
                           ),
                         ),

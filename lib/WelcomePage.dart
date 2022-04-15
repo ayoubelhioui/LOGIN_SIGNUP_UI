@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'SignupPage.dart';
 import 'LoginPage.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -2,15 +2,6 @@
 
 A new Flutter project.
 
-## Getting Started
+## This is a simple TODO_LIST_APP where you can login and manage your tasks, and there's a real-time clock
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Add a heading](https://user-images.githubusercontent.com/73433287/164262115-4c757301-acfc-48c0-a75c-72e7b051625d.png)
